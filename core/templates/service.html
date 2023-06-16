@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}   
+{% load i18n %}
+{% block content %}
+    <main>
+        <!-- Service Section  -->
+        <section class="service-area-3 section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 offset-xl-3">
+                        <div class="section-title text-center mb-5">
+                            <span class="subtitle" data-cue="slideInUp" data-delay="300">{% trans "Our Services" %}</span>
+                            <h2 class="title" data-cue="slideInUp" data-delay="500">{% trans "Our Clinical Services" %}</h2>
+                            <p class="pt-3" data-cue="slideInUp" data-delay="800">{% trans "At our medical center, we offer a wide range of clinical services to meet your healthcare needs. Our team of experienced professionals provides comprehensive care and individualized treatment plans tailored to your unique needs. From routine check-ups to specialized procedures, we are dedicated to helping you achieve optimal health and wellbeing." %}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for service  in services  %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="service-item-3" data-cue="slideInUp" data-delay="300">
+                            <div class="service-icon">
+                                <i class="{{service.icon_class}}"></i>
+                            </div>
+                            <figure>
+                                <img src="{% static 'assets/img/service/service.png' %}" alt="Service Image">
+                            </figure>
+                            <div class="service-title">
+                                <h3><a href={% url 'servis_details' service.id %}>{{service.title}}</a></h3>
+                            </div>
+                            <div class="service-content">
+                                <p>{{service.description|truncatechars:70|striptags|safe}}</p>
+                            </div>
+                            <div class="service-button">
+                                <a href={% url 'servis_details' service.id %}>{% trans "Read More" %} <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- Service Section  -->
+
+ 
+
+     
+    </main>
+
+    {% endblock %}

@@ -1,0 +1,303 @@
+{% extends 'base.html' %}
+{% load static custom_tags  %}
+{% load i18n %}
+
+{% block title %} Home {% endblock %}
+{% block content %}
+    <main>
+        <!-- Service Section  -->
+        <section class="service-area overflow-hidden">
+            <div class="container">
+                <div class="service-wrapper">
+                    <div class="row" data-cues="slideInRight" data-delay="1000">
+                        <div class="col-md-6 col-xl-4">
+                            <div class="service-item">
+                                <div class="service-title">
+                                    <div class="service-icon">
+                                        <i class="fas fa-tooth"></i>
+                                    </div>
+                                    <h3>{% trans "Implant Dentistry" %}</h3>
+                                </div>
+                                <p>{% trans "Implant Dentistry - Restore Your Smile with Confidence." %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4">
+                            <div class="service-item">
+                                <div class="service-title">
+                                    <div class="service-icon">
+                                        <i class="bi bi-shield-plus"></i>
+                                    </div>
+                                    <h3>{% trans "Safe Observation" %}</h3>
+                                </div>
+                                <p>{% trans "We prioritize safe observation for our patients. Our team of trained professionals closely monitor and provide a secure environment for recovery." %}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xl-4 d-md-none d-xl-block">
+                            <div class="service-item">
+                                <div class="service-title">
+                                    <div class="service-icon">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                    <h3>{% trans "Schedule Appointment" %}</h3>
+                                </div>
+                                <p>{% trans "Schedule your appointment with our medical clinic online or by phone for prompt and professional healthcare services. Our friendly staff is ready to assist you in booking your appointment at your convenienc" %}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Service Section  -->
+
+        <!-- About Section -->
+        <section class="about-area overflow-hidden section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="about-left-content">
+                            <div class="about-image" data-cue="slideInUp">
+                                <img src="{% static 'assets/img/about/about.png' %}" alt="Image">
+                                <img src="{% static 'assets/img/shape/circle.png' %}" alt="Circle Image" class="circle circle1">
+                                <img src="{% static 'assets/img/shape/circle2.png' %}" alt="Circle Image" class="circle circle2">
+                                <img src="{% static 'assets/img/shape/shape3.png' %}" alt="Shape Image" class="shape3">
+                            </div>
+                            <div class="about-service-list">
+                                <ul data-cues="slideInUp">
+                                    <li>Expert Doctors</li>
+                                    <li>Modern Anesthesia</li>
+                                    <li>Emergency Cases</li>
+                                    <li>Quality Brackets</li>
+                                    <li>24/7 Help Center</li>
+                                    <li>Modern Clinic</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-right-content" data-cues="slideInUp" data-delay="500">
+                            <div class="section-title" data-cues="slideInUp">
+                                <span class="subtitle ">About Us</span>
+                                <h2 class="title">Why You Should Trust Us? Get Know About Us</h2>
+                            </div>
+                            <p>At Medicinlic, we prioritize your trust by providing reliable, up-to-date medical information. 
+                                Our content is thoroughly researched, fact-checked, and sourced from credible experts.
+                                 We value your privacy and security and handle personal information responsibly.
+                                  We are transparent about our sources and methodologies and welcome user feedback to improve our services. 
+                                  Our user-centric approach ensures that information is presented in an accessible manner.
+                                   Please note that our content is for educational purposes only and does not replace professional medical advice.</p>
+                            <a href={% url 'about' %} class="btn btn-blue btn-xl btn-round">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+
+        <!-- Service Section  -->
+        <section class="service-area service-area-2 overflow-hidden section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-5">
+                        <div class="section-title text-center text-lg-start" data-cues="slideInUp" data-delay="500">
+                            <span class="subtitle">Services</span>
+                            <h2 class="title">Our Clinical Services</h2>
+                            <p class="pt-4">At Medicinlic, we offer a variety of clinical services including medical 
+                                consultations, diagnostic testing, 
+                                and preventive care.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-xl-5">
+                        <div class="service-left-content" data-cues="slideInUp">
+                            {% for service   in services  %}
+                            <div class="service-item service-item-2">
+                                <div class="service-icon">
+                                    <i class="{{ service.icon_class }}"></i>
+                                </div>
+                                <div class="service-text">
+                                    <h3>{{ service.title }}</h3>
+                                    <p>{{service.description|truncatechars:120|striptags|safe}}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                           
+                            <div class="service-btn">
+                                <a href="{% url 'services' %}" class="btn btn-blue btn-xl btn-round">All Services</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-7">
+                        <div class="service-right-content" data-cues="slideInUp">
+                            <div class="service-image">
+                                <img src="{% static 'assets/img/service/service.png' %}" alt="Image">
+                            </div>
+                           
+                            <img src="{% static 'assets/img/shape/shape4.png' %}" alt="Shape" class="shape">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Service Section  -->
+
+      
+
+        <!-- Booking Section -->
+        <section class="booking-area overflow-hidden overlay overlay-blue overlay-opacity-70 section-padding" style="background-image: url('assets/img/bg/bg.png');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="booking-wrapper" data-cues="slideInUp">
+                            <div class="section-title">
+                                <span class="subtitle">Book an Appointment</span>
+                                <h3>Contact Our friendly Reception Staff With Any Inquiry.</h3>
+                            </div>
+                            <div class="booking-form">
+                                <form method="POST">
+                                   {% csrf_token %}
+                                   {% for field in form %}
+                                   <div class="form-group">
+                                   {{ field }}
+                                   </div >
+                               {% endfor %}
+                                   
+                                    <button type="submit" class="btn btn-blue btn-xl btn-round mt-5">Make Appointment</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="booking-right-content">
+                            <div class="section-title">
+                                <span class="subtitle wow animate__animated animate__fadeInRight">Contact</span>
+                                <h3 class="text-white wow animate__animated animate__fadeInRight animate__delay-1">Emergency Contact Us.</h3>
+                                <p class="text-white wow animate__animated animate__fadeInRight animate__delay-2">For immediate assistance or medical emergencies, 
+                                    please call our emergency helpline.
+                                     Our team is available 24/7 to provide prompt support during urgent situations.</p>
+                            </div>
+                            <div class="booking-info-box" data-cue="slideInRight" data-delay="300">
+                                <div class="booking-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="booking-text">
+                                    <span>Call us now</span>
+                                    <a href="tel:+00123456789">{{settings.num1}}</a>
+                                </div>
+                            </div>
+                            <div class="booking-info-box" data-cue="slideInRight" data-delay="600">
+                                <div class="booking-icon">                                    
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="booking-text">
+                                    <span>Mail us now</span>
+                                    <a href="mailto:info@yourdomain.com">{{settings.email}}</a>
+                                </div>
+                            </div>
+                            <div class="subscribe-news-wrapper" data-cue="slideInRight" data-delay="900">
+                                <div class="subscribe-text">                                    
+                                    <i class="fas fa-envelope-open-text"></i>
+                                    <h3>Subscribe your email for newsletter</h3>
+                                </div>
+                                <p>Subscribe to our newsletter for the latest updates and valuable insights. 
+                                    Stay informed and never miss out on important healthcare information.</p>
+                                <form method='POST' role='form'>
+                                  {% csrf_token %}
+                                    <input class="form-control" id="emailinputt" type="email" placeholder="Email address" aria-label="form-control">
+                                    <button type="submit" id="emailbuttonn" class="btn btn-white btn-xl btn-round">Subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                SubsciberLogic = {
+                    emailManager(email) {
+                        fetch('/api/subscriber/', {
+                            method: 'POST',
+                            credentials: 'include',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': '{{ csrf_token }}'
+                            },
+                            body: JSON.stringify({
+                                'email': email,
+                            })
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                subscribeModalLongTitle = document.getElementById('subscribeModalLongTitle');
+                                emailinput.value = '';
+                            });
+                    }
+                }
+            
+                emailbutton = document.getElementById('emailbuttonn')
+                emailinput = document.getElementById('emailinputt')
+            
+                emailbutton.onclick = function (e) {
+                    e.preventDefault();
+                    email = emailinput.value;
+                    SubsciberLogic.emailManager(email);
+                }
+            
+            </script>
+    
+           
+
+            <img src="{% static 'assets/img/shape/circle3.png' %}" alt="Circle" class="circle3">
+            <img src="{% static 'assets/img/shape/shape6.png' %}" alt="Shape" class="shape6">
+            <img src="{% static 'assets/img/shape/shape7.png' %}" alt="Shape" class="shape7">
+            <img src="{% static 'assets/img/shape/shape8.png' %}" alt="Shape" class="shape8">
+        </section>
+        <!-- Booking Section -->
+
+       
+        <!-- Blog Area -->
+        <section class="blog-area section-padding">
+            <div class="container">
+                <div class="row" data-cues="slideInUp">
+                    <div class="col-12">
+                        <div class="section-title text-center mb-4 md-lg-5">
+                            <span class="subtitle wow animate__animated animate__fadeInUp">Blog</span>
+                            <h2 class="title wow animate__animated animate__fadeInUp animate__delay-1">Latest Clinic News</h2>
+                            <p class="pt-3 wow animate__animated animate__fadeInUp animate__delay-2">Lorem Ipsum available but the majority have suffered alteration in some
+                            <br>form, by injected humour, or randomized words.
+                            </p>
+                        </div>
+                    </div>
+
+                    {% for blog  in blog  %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="{% url 'blogdetails' blog.slug %}"><img src="{{blog.image.url}}" alt="Blog Image"></a>
+                            </div>
+                            <ul class="blog-meta">
+                                <li class="author">
+                                    <i class="fas fa-user-alt"></i>
+                                    <span>b{{blog.created_by}}</span>
+                                </li>
+                                <li class="meta-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>{{blog.updated_at}}</span>
+                                </li>
+                            </ul>
+                            <div class="blog-content">
+                                <h3><a href="{% url 'blogdetails' blog.slug %}">{{blog.title}}</a></h3>
+                                <p>{{blog.content|safe|truncatechars:50}}</p>
+                                <hr>
+                                <a href="{% url 'blogdetails' blog.slug %}" class="blog-link">Read More <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+   
+                </div>
+            </div>
+        </section>
+        <!-- Blog Area -->
+    </main>
+    {% endblock %}
+

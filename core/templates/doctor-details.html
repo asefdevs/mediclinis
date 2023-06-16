@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} Doctors {% endblock %}
+{% block content %}
+        <main>
+            <!-- Doctor-start-->
+            <section class="doctor-details-page section-padding">
+                <div class="container">
+                    <div class="row gx-30">
+                        <div class="col-lg-6">
+                            <div class="details-left-content">
+                                <div class="doctor-image">
+                                    <img src="{{doctor.image.url}}" alt="Doctor Image">
+                                </div>
+                                <div class="doctor-info d-md-flex align-items-center justify-content-between">
+                                    <div class="doctor-wrapper">
+                                        <h3 class="doctor-name">{{doctor.fullname}}</h3>
+                                        <span class="doctor-designation">Doctor of Medicine</span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="details-right-content">
+                                <p>{{doctor.description}}</p>
+                                <ul class="doctor-details-position">
+                                    <li>
+                                        <h4>Positions:</h4>
+                                        <span>{{doctor.position}}</span>
+                                    </li>
+                                    <li>
+                                        <h4>Experience:</h4>
+                                        <span>{{doctor.experience}}</span>
+                                    </li>
+                                    <li>
+                                        <h4>Ages:</h4>
+                                        <span>{{doctor.age}}</span>
+                                    </li>
+                                    <li>
+                                        <h4>Location:</h4>
+                                        <span>{{doctor.location}}</span>
+                                    </li>
+                                    <li>
+                                        <h4>Email:</h4>
+                                        <span>{{doctor.email}}</span>
+                                    </li>
+                                    <li>
+                                        <h4>Phone:</h4>
+                                        <span>{{doctor.phone}}</span>
+                                    </li>
+                                </ul>
+                                <h3 class="pt-5">Educational History</h3>
+                                <p>{{doctor.education}}</p>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Doctor-end -->
+
+           
+        </main>
+
+      {% endblock %}

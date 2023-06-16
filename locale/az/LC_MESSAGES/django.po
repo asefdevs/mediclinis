@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-29 14:40+0000\n"
+"PO-Revision-Date: 2023-04-29 14:40+0000\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: core/models.py:29
+msgid "News"
+msgstr "Xəbərlər"
+
+#: core/models.py:42
+msgid "Category"
+msgstr "Kateqoriya"
+
+#: core/models.py:56
+msgid "Settings"
+msgstr "Parametrlər"
+
+#: core/models.py:71 core/templates/partials/navbar.html:69
+msgid "Contact"
+msgstr "Əlaqə"
+
+#: core/models.py:82
+msgid "Subscriber"
+msgstr "Abunəçilər"
+
+#: core/models.py:98 core/templates/partials/navbar.html:42
+msgid "Services"
+msgstr "Servis"
+
+#: core/templates/index.html:14
+msgid "Find The Best Clinic To Get Solutions."
+msgstr "Həll almaq üçün ən yaxşı klinikanı tapın."
+
+#: core/templates/index.html:15
+msgid ""
+"At Medicilines medical center, we believe that everyone deserves the best "
+"care and solutions for their health concerns. That's why our team of "
+"experienced professionals work tirelessly to provide top-notch medical "
+"services and personalized treatment plans that are tailored to each "
+"patient's unique needs. From routine check-ups to complex procedures, we are"
+" committed to helping you achieve optimal health and wellbeing. Trust us to "
+"be your partner in health and let us guide you towards a healthier and "
+"happier life."
+msgstr ""
+"Medicilines tibb mərkəzində biz inanırıq ki, hər kəs öz sağlamlıq "
+"problemləri üçün ən yaxşı qayğıya və həll yollarına layiqdir. Buna görə də "
+"bizim təcrübəli peşəkarlardan ibarət komandamız hər bir xəstənin unikal "
+"ehtiyaclarına uyğunlaşdırılmış yüksək səviyyəli tibbi xidmətlər və "
+"fərdiləşdirilmiş müalicə planları təqdim etmək üçün yorulmadan çalışır. "
+"Müntəzəm yoxlamalardan mürəkkəb prosedurlara qədər biz sizə optimal "
+"sağlamlıq və rifah əldə etməyinizə kömək etmək öhdəliyi götürürük. "
+"Sağlamlıqda tərəfdaşınız olacağımızı bizə etibar edin və sizi daha sağlam və"
+" xoşbəxt həyata doğru istiqamətləndirək."
+
+#: core/templates/index.html:19
+msgid "Explore Our Services"
+msgstr "Xidmətlərimizi Araşdırın"
+
+#: core/templates/index.html:23 core/templates/service.html:26
+msgid "Expert Doctors"
+msgstr "Həkimlər"
+
+#: core/templates/index.html:27 core/templates/service.html:30
+msgid "Total Medical Stuff"
+msgstr "Ümumi əməkdaşlar"
+
+#: core/templates/index.html:31 core/templates/service.html:34
+msgid "Online Appointments"
+msgstr "Onlayn görüşlər"
+
+#: core/templates/index.html:73
+msgid "Implant Dentistry"
+msgstr "İmplant stomatologiyası"
+
+#: core/templates/index.html:75
+msgid "Implant Dentistry - Restore Your Smile with Confidence."
+msgstr "İmplant Stomatologiya - Güvənlə Gülüşünüzü bərpa edin."
+
+#: core/templates/index.html:84
+msgid "Safe Observation"
+msgstr "Təhlükəsiz Müşahidə"
+
+#: core/templates/index.html:86
+msgid ""
+"We prioritize safe observation for our patients. Our team of trained "
+"professionals closely monitor and provide a secure environment for recovery."
+msgstr ""
+"Biz xəstələrimiz üçün təhlükəsiz müşahidəyə üstünlük veririk. Təcrübəli "
+"peşəkarlardan ibarət komandamız diqqətlə izləyir və bərpa üçün təhlükəsiz "
+"mühit təmin edir."
+
+#: core/templates/index.html:95
+msgid "Schedule Appointment"
+msgstr "Görüş cədvəli"
+
+#: core/templates/index.html:97
+msgid ""
+"Schedule your appointment with our medical clinic online or by phone for "
+"prompt and professional healthcare services. Our friendly staff is ready to "
+"assist you in booking your appointment at your convenienc"
+msgstr ""
+"Tez və peşəkar səhiyyə xidmətləri üçün tibbi klinikamızla onlayn və ya "
+"telefonla görüşünüzü təyin edin. Bizim mehriban personalımız sizin rahat "
+"olduğunuz vaxtda görüşünüzü sifariş etməkdə sizə kömək etməyə hazırdır"
+
+#: core/templates/partials/navbar.html:19
+msgid "Enter your search query"
+msgstr "Axtarış üçün yazın"
+
+#: core/templates/partials/navbar.html:29
+msgid "Emergency Line"
+msgstr "Qaynar xətt"
+
+#: core/templates/partials/navbar.html:35
+msgid "Home "
+msgstr "Ev"
+
+#: core/templates/partials/navbar.html:38
+msgid "About"
+msgstr "Haqqında"
+
+#: core/templates/partials/navbar.html:49
+msgid "Doctors"
+msgstr "Həkimlər"
+
+#: core/templates/partials/navbar.html:56
+msgid "Pages"
+msgstr "Səhifələr"
+
+#: core/templates/partials/navbar.html:76
+msgid "Logout"
+msgstr "Çıxış"
+
+#: core/templates/partials/navbar.html:82
+msgid "Login"
+msgstr "Giriş"
+
+#: core/templates/partials/navbar.html:83
+msgid "Register"
+msgstr "Qeydiyyat"
+
+#: core/templates/search.html:12
+msgid "Search Results for"
+msgstr "Axtarış nəticələri"
+
+#: core/templates/service.html:49
+msgid "Our Services"
+msgstr "Servis"
+
+#: core/templates/service.html:50
+msgid "Our Clinical Services"
+msgstr "Klinik xidmətlərimiz"
+
+#: core/templates/service.html:51
+msgid ""
+"At our medical center, we offer a wide range of clinical services to meet "
+"your healthcare needs. Our team of experienced professionals provides "
+"comprehensive care and individualized treatment plans tailored to your "
+"unique needs. From routine check-ups to specialized procedures, we are "
+"dedicated to helping you achieve optimal health and wellbeing."
+msgstr ""
+"Tibb mərkəzimizdə sizin səhiyyə ehtiyaclarınızı qarşılamaq üçün geniş "
+"spektrli klinik xidmətlər təklif edirik. Təcrübəli peşəkarlardan ibarət "
+"komandamız sizin unikal ehtiyaclarınıza uyğunlaşdırılmış hərtərəfli qayğı və"
+" fərdi müalicə planları təqdim edir. Müntəzəm müayinələrdən tutmuş xüsusi "
+"prosedurlara qədər biz sizə optimal sağlamlıq və rifah əldə etməyinizə kömək"
+" etməyə çalışırıq."
+
+#: core/templates/service.html:72
+msgid "Read More"
+msgstr "Daha Çox"

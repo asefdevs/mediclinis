@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Blog {% endblock %}
+
+
+{% block content %}
+        <!-- Blog Section  -->
+        <section class="blog-details-area section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="blog-details-wrapper">
+                            <div class="blog-left-content">
+                               
+                                <div class="blog-item mt-0">
+                                    <div class="blog-img">
+                                        <a href="#" ><img style="width:800px; height:300px" src="{{ single_blog.image.url}}" alt="Blog Image"></a>
+                                    </div>
+                                    <div class="blog-meta-comment">
+                                        <ul class="blog-meta">
+                                            <li class="author">
+                                                <i class="fas fa-user-alt"></i>
+                                                <span>{{single_blog.created_by}}</span>
+                                            </li>
+                                            <li class="meta-date">
+                                                <i class="fas fa-calendar-alt"></i>
+                                                <span>{{single_blog.updated_at}}</span>
+                                            </li>
+                                        </ul>
+                                       
+                                    </div>
+                                    <div class="blog-content">
+                                        <a href="blog-details.html"><h3>{{single_blog.title}}</h3></a>
+                                        <p>{{single_blog.content|safe}}
+                                        </p>
+                                        <hr>
+                                       
+                                        <div class="blog-details-reply">
+                                            <div class="blog-reply-wrapper">
+                                                <h3>Comments</h3>
+                                                <hr>
+
+                                                {% for comment in comments  %}
+                                                <div class="blog-reply-item">
+                                                    <div class="blog-reply-content">
+                                                        <h5>{{ comment.user }}</h5>
+                                                        <p>{{comment.content}} </p>
+                                                        <div class="blog-reply-meta">
+                                                            <span class="reply-meta-date">{{ comment.created_at }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        {% if user.is_authenticated %}
+
+                                        <div class="blog-details-form">
+                                            <div class="booking-wrapper wow animate__animated animate__fadeInUp">
+                                                <div class="booking-form">
+                                                    <form method="POST">
+                                                        {% csrf_token %}
+                                                        {{comment_form}}
+                                                        <button type="submit" class="btn btn-blue btn-xl btn-round mt-5">Send Comment</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Section  -->
+    </main>
+    
+   
+{% endblock %}
+

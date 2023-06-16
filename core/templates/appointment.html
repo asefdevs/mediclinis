@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} Appointment {% endblock %}
+{% block content %}
+
+        <main>
+           
+            <!-- Doctor-start-->
+            <section class="appointment-page overflow-hidden section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="booking-wrapper" data-cues="slideInLeft" data-delay="300">
+                                <div class="section-title">
+                                    <span class="subtitle">Book an Appointment</span>
+                                    <h3>Contact Our friendly Reception Staff With Any Inquiry.</h3>
+                                </div>
+                                <div class="booking-form">
+                                    <form method='POST'>
+                                        {% csrf_token %}
+                                        {% for field in form %}
+                                        {{ field }}
+                                    {% endfor %}
+                                        <button type="submit" class="btn btn-blue btn-xl btn-round mt-5">Make
+                                            Appointment</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="booking-right-content">
+                                <div class="section-title" data-cues="slideInUp" data-delay="400">
+                                    <span class="subtitle">Contact</span>
+                                    <h3>
+                                        Emergency Contact Us.</h3>
+                                    <p>
+                                        For immediate assistance or medical emergencies, 
+                                        please call our emergency helpline.
+                                         Our team is available 24/7 to provide prompt support during urgent situations.</p>
+                                </div>
+                                <div class="booking-info-box" data-cues="slideInUp">
+                                    <div class="booking-icon">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div class="booking-text">
+                                        <span>Call us now</span>
+                                        <a href="tel:+00123456789">{{ settings.num1}}</a>
+                                    </div>
+                                </div>
+                                <div class="booking-info-box" data-cues="slideInUp">
+                                    <div class="booking-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="booking-text">
+                                        <span>Mail us now</span>
+                                        <a href="mailto:info@yourdomain.com">{{settings.email}}</a>
+                                    </div>
+                                </div>
+                                <div class="subscribe-news-wrapper" data-cues="slideInUp">
+                                    <div class="subscribe-text">
+                                        <i class="fas fa-envelope-open-text"></i>
+                                        <h3>Subscribe your email for newsletter</h3>
+                                    </div>
+                                    <p>Subscribe to our newsletter for the latest updates and valuable insights. 
+                                        Stay informed and never miss out on important healthcare information.</p>
+                                    <form>
+                                        {% csrf_token %}
+                                        <input class="form-control" id="emailinputt" type="email" placeholder="Email address" aria-label="form-control">
+                                        <button type="submit" id="emailbuttonn" class="btn btn-white btn-xl btn-round">Subscribe</button>
+                                    </form>
+                                </div>
+                                <script>
+                                    SubsciberLogic = {
+                                        emailManager(email) {
+                                            fetch('/api/subscriber/', {
+                                                method: 'POST',
+                                                credentials: 'include',
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                    'X-CSRFToken': '{{ csrf_token }}'
+                                                },
+                                                body: JSON.stringify({
+                                                    'email': email,
+                                                })
+                                            })
+                                                .then(response => response.json())
+                                                .then(data => {
+                                                    subscribeModalLongTitle = document.getElementById('subscribeModalLongTitle');
+                                                    emailinput.value = '';
+                                                });
+                                        }
+                                    }
+                                
+                                    emailbutton = document.getElementById('emailbuttonn')
+                                    emailinput = document.getElementById('emailinputt')
+                                
+                                    emailbutton.onclick = function (e) {
+                                        e.preventDefault();
+                                        email = emailinput.value;
+                                        SubsciberLogic.emailManager(email);
+                                    }
+                                
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Doctor-end -->
+        </main>
+{% endblock %}

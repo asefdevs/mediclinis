@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} Booking list {% endblock %}
+{% block content %}
+    <main>
+        
+
+        <!-- Booking List Section  -->
+        <section class="booking-list-area section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        {% for doctor in doctors  %}
+                        <div class="doctor-booking-list">
+                            <div class="doctor-details">
+                                <div class="doctor-details-img">
+                                    <img src={{ doctor.image.url }}>
+                                </div>
+                                <div class="doctor-details-content">
+                                    <h3>{{doctor.fullname}}</h3>
+                                    <span>{{ doctor.position }}</span>
+                                    <p>{{doctor.description}}</p>
+                                </div>
+                            </div>
+                            <div class="booking-table table-responsive">
+                                <table class="table table-bordered border-primary">
+                                    <thead>
+                                      <tr>
+                                        <th class="table-width" scope="col">Name</th>
+                                        <th class="table-width" scope="col">Problem</th>
+                                        <th class="table-width" scope="col">Contact</th>
+                                        <th class="table-width" scope="col">Date & Time</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for appointment in doctor.appointment_set.all %}
+                                        <tr>
+                                            <td><h5>{{ appointment.name }}</h5></td>
+                                            <td><p>{{ appointment.problem }}</p></td>
+                                            <td><h5>{{ appointment.email }}</h5></td>
+                                            <td><h5>{{ appointment.date }} & {{ appointment.time }}</h5></td>
+                                        </tr>
+                                    {% endfor %}
+                                 
+                                    </tbody>
+                                  </table>
+                            </div>
+                            <img class="position-absolute bottom-0 start-0" src="{% static 'assets/img/shape/shape15.png' %}" alt="Shape">
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <img class="shape1" src="{% static 'assets/img/error/Graphic1.png' %}" alt="">
+            <img class="shape2" src="{% static 'assets/img/error/Graphic2.png' %}" alt="">
+        </section>
+        <!-- Booking List Section  -->
+    </main>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% load static %}
+{% load i18n %}
+<header class="header-area">
+    <div class="container-md">
+        <div class="row">
+            <div class="col-12">
+                <nav class="header-navbar">
+                    <div class="header-logo">
+                        <a href="{% url 'home' %}"><img src="{% static 'assets/img/logo.png' %}" alt="Logo"></a>
+                    </div>
+                    <form action="{% url 'search' %}" method="get">
+                        <div class="search-box" style=" display: flex;
+                        align-items: center;
+                        background-color: #fff;
+                        border-radius: 25px;
+                        padding: 5px 10px;
+                        margin: 5px;
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);">
+                            <input type="text" id="search-input" name="query" placeholder={% trans "Enter your search query" %} style=" border: none;
+                            width: 100%;
+                            font-size: 16px;
+                            padding: 10px;">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </div>          
+                    </form>
+                      
+                    <div class="header-nav">
+                        <div class="header-contact-number d-none d-lg-block">
+                            <span>{% trans 'Emergency Line' %}: <a href="tel:{{settings.num1}}">{{settings.num1}}</a></span>
+                        </div>
+                        <a class="mobile-menu" href="#menu"><span></span></a>
+                        <nav class="menu" id="menu">
+                            <ul class="nav-list">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'home' %}">{% trans "Home " %}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'about' %}">{% trans "About" %}</a>
+                                </li>
+                               
+                                <li class="nav-item menu-dropdown">
+                                    <a class="nav-link" href="service.html">{% trans "Services" %}</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'services' %}">Service Page</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item menu-dropdown">
+                                    <a class="nav-link" href="{% url 'doctor' %}">{% trans "Doctors" %}</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'doctor' %}">Doctors Page</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item menu-dropdown">
+                                    <a class="nav-link" href="#">{% trans "Pages" %}</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{% url 'blog' %}">Blog Page</a></li>       
+                                        <li><a href="{% url 'appointment' %}">Appointment Page</a></li>
+                                        <li><a href="{% url 'booking' %}">Booking Page</a></li>
+                                        {% comment %} <li><a href="error.html">404 Page</a></li> {% endcomment %}
+                                       
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    {% comment %} <a class="nav-link" href="faq.html">FAQ</a> {% endcomment %}
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'contact' %}">{% trans "Contact" %}</a>
+                                </li>
+                                {% if user.is_authenticated  %}
+                                
+                                <li class="nav-item menu-dropdown">
+                                    <a class="nav-link" href="#">{{user.username}}</a>
+                                <ul class="sub-menu">
+                                    <li><a class='nav-link' href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+                                </ul>
+                                </li>
+
+                                
+                                {% else %}
+                                <li><a class='nav-link' href="{% url 'login' %}">{% trans "Login" %}</a></li>
+                                <li><a class='nav-link' href="{% url 'register' %}">{% trans "Register" %}</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="  ">
+                        <form id="languageForm" action="{% url 'set_language' %}" method="post" style="display: block;">
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ request.path }}">
+                            <select style="width: 50px; height: 30px; border-radius: 15%; border: 2px; color: rgb(51, 88, 255 ); font-size: 18px;" name="language" onchange="this.form.submit()">
+                                {% get_current_language as LANGUAGE_CODE %}
+                                {{ LANGUAGE_CODE }}
+                                {% get_available_languages as LANGUAGES %}
+                                {% get_language_info_list for LANGUAGES as languages %}
+                                {% for language in languages %}
+                                <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                                    {{ language.code }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- header end  -->

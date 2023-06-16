@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-12 09:28+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: core/models.py:27
+msgid "News"
+msgstr ""
+
+#: core/models.py:40
+msgid "Category"
+msgstr ""
+
+#: core/models.py:54
+msgid "Settings"
+msgstr ""
+
+#: core/models.py:69 core/templates/partials/navbar.html:53
+msgid "Contact"
+msgstr ""
+
+#: core/templates/partials/navbar.html:19
+msgid "Home "
+msgstr ""
+
+#: core/templates/partials/navbar.html:22
+msgid "About"
+msgstr ""
+
+#: core/templates/partials/navbar.html:26
+msgid "Services"
+msgstr ""
+
+#: core/templates/partials/navbar.html:33
+msgid "Doctors"
+msgstr ""
+
+#: core/templates/partials/navbar.html:40
+msgid "Pages"
+msgstr ""
+
+#: core/templates/partials/navbar.html:59
+msgid "Logout"
+msgstr ""
+
+#: core/templates/partials/navbar.html:65
+msgid "Login"
+msgstr ""
+
+#: core/templates/partials/navbar.html:66
+msgid "Register"
+msgstr ""

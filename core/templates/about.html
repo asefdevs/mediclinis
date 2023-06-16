@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} About {% endblock %}
+{% block content %}
+
+        <!-- About Section -->
+        <section class="about-area about-area-2 section-padding">
+            <div class="container">
+                <div class="row flex-row-reverse">
+                    <div class="col-lg-6">
+                        <div class="about-left-content">
+                            <div class="about-image">
+                                <img src="{% static 'assets/img/about/about2.png' %}" alt="Image">
+                                <img src="{% static 'assets/img/shape/circle2.png' %}" alt="Circle Image" class="circle circle1">
+                                <img src="{% static 'assets/img/shape/circle.png' %}" alt="Circle Image" class="circle circle2">
+                                <img src="{% static 'assets/img/shape/shape12.png' %}" alt="Shape Image" class="shape3">
+                            </div>
+                            <div class="about-service-list">
+                                <ul data-cues="slideInRight" data-delay="500">
+                                    <li>Expert Doctors</li>
+                                    <li>Modern Anesthesia</li>
+                                    <li>Emergency Cases</li>
+                                    <li>Quality Brackets</li>
+                                    <li>24/7 Help Center</li>
+                                    <li>Modern Clinic</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about-right-content" data-cues="slideInUp" data-delay="500">
+                            <div class="section-title">
+                                <span class="subtitle">About Us</span>
+                                <h2 class="title">Why You Should Trust Us? <br>Get Know About Us</h2>
+                            </div>
+                            <p class="pt-4">At Medicinlic, we prioritize your trust by providing reliable, up-to-date medical information. Our content is thoroughly researched, fact-checked, and sourced from credible experts. We value your privacy and security and handle personal information responsibly. We are transparent about our sources and methodologies and welcome user feedback to improve our services. Our user-centric approach ensures that information is presented in an accessible manner. Please note that our content is for educational purposes only and does not replace professional medical advice.
+
+                                In addition, we take pride in offering the following:
+                                
+                                - Expert Doctors: Our team consists of highly qualified and experienced doctors who provide top-notch healthcare services.
+                                
+                                - Comprehensive Medical Staff: We have a dedicated and diverse medical staff, including doctors, nurses, and support personnel, working together to deliver holistic care.
+                                
+                                - Online Appointments: We offer the convenience of scheduling appointments online. You can easily book consultations with our doctors through our website or dedicated app.
+                                
+                                At Medicinlic, we are committed to your well-being and strive to provide trustworthy medical information and excellent healthcare services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+
+      
+{% endblock %}

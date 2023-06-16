@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+<div class="container text-center py-5">
+    <h1 class="mb-4">{% trans 'Search Results for' %} <span class="text-success">"{{ query }}"</span></h1>
+
+    {% if blogs %}
+        <div class="card">
+            <div class="card-header">
+                <h2>{% trans 'Blogs Pages' %}</h2>
+            </div>
+            <div class="card-body">
+                <ol class="list-unstyled">
+                    {% for blog in blogs %}
+                        <li>
+                            <a href="{% url 'blogdetails' blog.slug %}" class="text-decoration-none">
+                                {{ forloop.counter }}. {{ blog.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock content %}

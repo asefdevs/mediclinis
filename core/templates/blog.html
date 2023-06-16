@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static custom_tags %}
+{% block title %} Blog {% endblock %}
+{% block content %}
+
+<main>
+    
+
+    <!-- Blog Section  -->
+    <section class="blog-area blog-area-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="blog-wrapper">
+                        <div class="blog-left-content">
+                            {% comment %} {% get_news 1 0 5 as blogs %} {% endcomment %}
+                            {% for blog  in news  %}
+                            <div class="blog-item blog-item-2 mt-0" data-cues="slideInUp" data-delay="300">
+                                <div class="blog-img">
+                                    <a href="{% url 'blogdetails' blog.slug %}"><img style="width:800px; height:300px" src="{{ blog.image.url }}"
+                                            alt="Blog Image"></a>
+                                </div>
+                                <ul class="blog-meta">
+                                    <li class="author">
+                                        <i class="fas fa-user-alt"></i>
+                                        <span>By {{blog.created_by}}</span>
+                                    </li>
+                                    <li class="meta-date">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>{{blog.updated_at|date:"d/m/Y"}}</span>
+                                    </li>
+                                </ul>
+                                <div class="blog-content">
+                                    <a href="{% url 'blogdetails' blog.slug %}">
+                                        <h3>{{blog.title}}</h3>
+                                    </a>
+                                    <p>{{blog.content|safe|truncatechars:50 }}</p>
+                                    <hr>
+                                    <div class="blog-btn">
+                                        <a href="{% url 'blogdetails' blog.slug %} " class="blog-link">ReadMore<i
+                                                class="bi bi-arrow-right"></i></a>
+                                       
+                                    </div>
+                                </div>
+                            </div>    
+                            {% endfor %}                       
+                        </div>
+                        <div class="blog-right-content">
+                            <div class="sidebar-widget">
+                                <div class="sidebar-search-form">
+                                   
+ <form action="" method="GET">
+    <div class="input-group mb-3">
+        <div class="mr-0">
+            <select style="height: 35px" name="cat"
+            >
+            <option value="">Category</option>
+                {% for category in categories %}
+                <option value="{{ category.id }}" {% if category.id == category %}selected{% endif %}>{{ category.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <!-- datetime input -->
+        
+            <div>
+                <label class="text-black"><b>Start:</b> </label>
+                <input value="{{ start_date }}" type="date" name="startdate"
+                    placeholder="startdatdde">
+            </div>
+            <div>
+                
+                    <label class="text-black"><b>End:</b> </label>
+                    <input  value="{{ end_date }}"  type="date" name="enddate"
+                        placeholder="enddate">
+            </div>
+
+        <div style="margin-left: 50px;">
+            <input value="{% if news_title %}{{ news_title }}{% endif %}" type="text" class="form-control" placeholder="Search for news" name="news">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+        </div>
+    </div>
+</form>
+                                    <img src="{% static 'assets/img/blog-page/blog-shape1.png' %}" alt=""
+                                        class="shape1">
+                                    <img src="{% static 'assets/img/blog-page/blog-shape2.png' %}" alt=""
+                                        class="shape2">
+                                </div>
+                            </div>
+                            <div class="sidebar-widget border mt-5">
+                                <h4 class="sidebar-title">Recent Posts</h4>
+                                {% for blog  in blog  %}
+                                <ul class="list-group post">
+                                    <li class="list-group-item post-item">
+                                        <div class="list-group-img">
+                                            <a href="blog-details.html"><img src="{{blog.image.url}}" alt=""></a>
+                                        </div>
+                                        <div class="list-group-content">
+                                            <h6 class="list-group-title"><a href="blog-details.html">{{blog.title}}</a></h6>
+                                            <span class="list-group-date"><i class="far fa-calendar-alt"></i> {{blog.created_at}}</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                {% endfor %}
+                            </div>
+                           
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section  -->
+</main>
+
+{% endblock %}

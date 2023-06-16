@@ -1,0 +1,49 @@
+ {% extends 'base.html' %} 
+{% block content %}
+        <!-- Login Section  -->
+        <main>
+        <section class="login-area section-padding" style="background-image: url('assets/img/login/bg.png');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="login-wrapper">
+                            <div class="section-title text-lg-start">
+                                <span class="subtitle wow animate__animated animate__fadeInUp">Login</span>
+                                <h2 class="title wow animate__animated animate__fadeInUp animate__delay-1">See your growth and get<br>
+                                    consulting support!</h2>
+                            </div>
+                            <div class="social-button">
+                                <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-blue btn-xl btn-round google"><i class="fab fa-google"></i>Sign up with google</a>
+                            </div>
+                            <div class="login-or">
+                                <hr>
+                                <span>or</span>
+                            </div>
+                            <form method='POST'>
+                                {% csrf_token %}
+                                {% for form in form %}
+                                  <div class="form-group">
+                                    {{ form }}
+                                    <p class="text-danger">
+                                      {{ form.field.errors }}
+                                    </p>
+                                  </div>
+                                {% endfor %}
+
+                                <div class="login-button">
+                                    <button href="#"  type='submit' class="btn btn-blue btn-xl btn-round">Login </button>
+                                </div>
+                              </form>
+                            
+                              <img class="shape1" src="assets/img/login/Graphic3.png" alt="">
+                              <img class="shape2" src="assets/img/login/Graphic4.png" alt="">
+                              <img class="shape3" src="assets/img/login/Graphic.png" alt="">
+                              <img class="shape4" src="assets/img/login/Graphic2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <main>
+        <!-- Login Section  -->
+   {% endblock %} 
